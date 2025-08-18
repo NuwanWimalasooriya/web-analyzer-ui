@@ -1,0 +1,74 @@
+<div class="container mt-5">
+  <h1 class="text-primary mb-3">URL Content Fetcher</h1>
+
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      [(ngModel)]="inputUrl"
+      class="form-control"
+      placeholder="Enter URL"
+    />
+    <button class="btn btn-primary" (click)="fetchContent()">Get Content</button>
+    <button class="btn btn-primary" (click)="fetchUrl()">Get Content</button>
+  </div>
+<div *ngIf="loading" style="margin-top: 1rem;">
+  <p>Loading...</p>
+  <div *ngIf="loading" class="progress-track">
+  <div class="progress-bar"></div>
+</div>
+</div>
+
+  <div *ngIf="content" class="card mt-3">
+    <div class="card-header">Fetched Content</div>
+    <div class="card-body">
+      <div *ngIf="content">
+
+  <!-- Title -->
+  <h1>{{ content.title }}</h1>
+
+  <!-- Headings -->
+  <div *ngIf="content.headings?.length">
+    <h2>Headings:</h2>
+    <ul>
+      <li *ngFor="let heading of content.headings">
+        <strong>{{ heading.level }}:</strong> {{ heading.text }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Links -->
+  <div *ngIf="content.links?.length">
+    <h2>Links:</h2>
+    <ul>
+      <li *ngFor="let link of content.links">
+        <a [href]="link" target="_blank">{{ link }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Login detected -->
+  <div>
+    <strong>Login Detected:</strong> {{ content.login_detected ? 'Yes' : 'No' }}
+  </div>
+
+  <!-- Login indicators -->
+  <div *ngIf="content.login_indicators?.length">
+    <h2>Login Indicators:</h2>
+    <ul>
+      <li *ngFor="let indicator of content.login_indicators">
+        {{ indicator }}
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<div *ngIf="!content">
+  No content found.
+</div>
+
+    </div>
+  </div>
+</div>
+<style>
+</style>
