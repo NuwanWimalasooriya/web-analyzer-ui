@@ -8,6 +8,9 @@ export interface Content {
   htmlVersion:string;
   headings: Heading[];
   links: string[];
+    internal_links: number;
+    external_links: number;
+    inaccessible_links: number;
   login_detected: boolean;
   login_indicators: string[];
 }

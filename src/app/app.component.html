@@ -60,6 +60,15 @@
         <a [href]="link" target="_blank">{{ link }}</a>
       </li>
     </ul>
+    <div>
+    <strong> Count of Internal Links:</strong> {{ content.internal_links }}
+     </div><div>
+     <strong> Count of External Links:</strong> {{ content.external_links }}
+     </div><div>
+         <strong>Is there any Inaccessible Links:</strong> {{ content.inaccessible_links>0 ? 'Yes' : 'No' }}
+         </div><div *ngIf="content.inaccessible_links>0" >
+          <strong>Count of Inaccessible Links:</strong> {{ content.inaccessible_links }}
+  </div>
   </div>
 
   <!-- Login detected -->
