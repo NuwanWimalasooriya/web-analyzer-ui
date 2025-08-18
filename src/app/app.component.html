@@ -25,15 +25,31 @@
 
   <!-- Title -->
   <h1>{{ content.title }}</h1>
-
+  <p><strong>HTML Version:</strong> {{ content.htmlVersion }}</p> <!-- ✅ -->
   <!-- Headings -->
   <div *ngIf="content.headings?.length">
-    <h2>Headings:</h2>
-    <ul>
-      <li *ngFor="let heading of content.headings">
-        <strong>{{ heading.level }}:</strong> {{ heading.text }}
-      </li>
-    </ul>
+    <h3>Heading Summary</h3>
+
+<table class="heading-table">
+  <thead>
+    <tr>
+      <th>Heading Level</th>
+      <th>Count</th>
+      <th>Texts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let level of getHeadingsByLevel() | keyvalue">
+      <td>{{ level.key }}</td>
+      <td>{{ level.value.length }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let text of level.value">{{ text }}</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
   </div>
 
   <!-- Links -->

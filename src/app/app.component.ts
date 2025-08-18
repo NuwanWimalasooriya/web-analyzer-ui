@@ -50,4 +50,19 @@ export class AppComponent {
     }
   });
 }
+
+
+getHeadingsByLevel(): { [level: string]: string[] } {
+  if (!this.content || !this.content.headings) return {};
+
+  return this.content.headings.reduce((acc: any, h) => {
+    if (!acc[h.level]) {
+      acc[h.level] = [];
+    }
+    acc[h.level].push(h.text);
+    return acc;
+  }, {});
 }
+}
+
+

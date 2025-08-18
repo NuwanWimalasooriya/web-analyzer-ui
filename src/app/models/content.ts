@@ -5,6 +5,7 @@ export interface Heading {
 
 export interface Content {
   title: string;
+  htmlVersion:string;
   headings: Heading[];
   links: string[];
   login_detected: boolean;

@@ -26,6 +26,22 @@ pre {
   animation: progress 1.5s linear infinite;
 }
 
+.heading-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.heading-table th,
+.heading-table td {
+  border: 1px solid #444;
+  padding: 6px 12px;
+  text-align: left;
+}
+
+.heading-table th {
+  background-color: #f2f2f2;
+}
 @keyframes progress {
   0%   { transform: translateX(-100%); }
     50% { transform: translateX(0); }
