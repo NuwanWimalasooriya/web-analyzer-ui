@@ -1,6 +1,12 @@
 # Web-Analyzer-UI
+This is the frontend application to display filtered contents whiched are analyzed from the COntent Analyzer API (Golang)
+By entering a url in the given textbox, user can click the "Get Content" button to retrieve the specfic contents based on the given web page.
+If the given url is not valid one, it will display the captured error message in the UI.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+# Pre-Requests
+Node v17 orabove
+Visual studio code
+[Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
 
 ## Development server
 
@@ -24,7 +30,11 @@ To build the project run:
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
 
-## Send a request to the WebAnalyzer service
+## Possible improvements
+1. If the website is having huge capacity of contents, its taking time to analyze and invalidate caching can be applied for responses to avoid calling API for similar requests.
+2. Frontend application can be build as a docker image and add to the docker registry.
+
+
 
 1. Enter a valid url in the textbox
 2. Click on the "Get Content" button.
