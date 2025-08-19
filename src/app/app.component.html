@@ -17,11 +17,12 @@
   <div class="progress-bar"></div>
 </div>
 </div>
+<div *ngIf="error" class="error">{{ error }}</div>
 
   <div *ngIf="content" class="card mt-3">
-    <div class="card-header">Fetched Content</div>
+    <!-- <div class="card-header">Fetched Content</div> -->
     <div class="card-body">
-      <div *ngIf="content">
+      <div>
 
   <!-- Title -->
   <h1>{{ content.title }}</h1>

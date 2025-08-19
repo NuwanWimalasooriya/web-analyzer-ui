@@ -38,15 +38,20 @@ export class AppComponent {
 
   console.log('Requesting URL:', this.inputUrl);
  this.loading = true;
+   this.content=null;
+    this.error="";
   this.contentService.fetchUrl(this.inputUrl).subscribe({
    next: (res: Content) => {
         console.log('Response:', res);
         this.content = res;
          this.loading = false;
+        
       },
-    error: (err) => {
-      console.error('Error fetching content:', err); 
+    error: (res: Content) => {
+      console.error('Error fetching content:', res); 
       this.error = 'Error fetching content'
+       this.loading = false;
+     
     }
   });
 }
