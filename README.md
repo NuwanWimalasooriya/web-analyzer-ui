@@ -34,7 +34,7 @@ Once the server is running, open your browser and navigate to `http://localhost:
 1. If the website is having huge capacity of contents, its taking time to analyze and invalidate caching can be applied for responses to avoid calling API for similar requests.
 2. Frontend application can be build as a docker image and add to the docker registry.
 
-
+## How to use the Content Analyzer UI
 
 1. Enter a valid url in the textbox
 2. Click on the "Get Content" button.
