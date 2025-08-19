@@ -20,39 +20,26 @@ export class AppComponent {
 
   constructor(private contentService: ContentService) {}
 
-  fetchContent() {
-    if (!this.inputUrl.trim()) return;
- this.loading = true; 
-    this.contentService.getContentFromUrl(this.inputUrl).subscribe({
-    next: (res: Content) => {
-        console.log('Response:', res);
-        this.content = res;
-         this.loading = false;
-      },
-      error: () => this.error = 'Error fetching content'
-    });
-  }
 
-  fetchUrl() {
+  fetchContent() {
   if (!this.inputUrl.trim()) return;
 
   console.log('Requesting URL:', this.inputUrl);
  this.loading = true;
    this.content=null;
     this.error="";
-  this.contentService.fetchUrl(this.inputUrl).subscribe({
+  this.contentService.getContentFromUrl(this.inputUrl).subscribe({
    next: (res: Content) => {
         console.log('Response:', res);
         this.content = res;
          this.loading = false;
         
       },
-    error: (res: Content) => {
-      console.error('Error fetching content:', res); 
-      this.error = 'Error fetching content'
-       this.loading = false;
-     
-    }
+    error: (err) => {
+        // Assign API error message (or custom) to string variable
+        this.error = err.error ? err.error : 'Error occured during the content fetch!';
+        this.loading = false;
+  }
   });
 }
 
