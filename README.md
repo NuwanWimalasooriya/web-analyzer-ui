@@ -29,5 +29,6 @@ Once the server is running, open your browser and navigate to `http://localhost:
 1. Enter a valid url in the textbox
 2. Click on the "Get Content" button.
 
+<img width="1397" height="946" alt="image" src="https://github.com/user-attachments/assets/d830da4e-2590-4185-856c-ff3a364ab1cd" />
 
 
