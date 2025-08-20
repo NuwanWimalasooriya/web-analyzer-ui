@@ -22,7 +22,8 @@ export class AppComponent {
 
 
   fetchContent() {
-  if (!this.inputUrl.trim()) return;
+  if (!this.inputUrl.trim()) 
+    this.error ="URL is empty"
 
   console.log('Requesting URL:', this.inputUrl);
  this.loading = true;
